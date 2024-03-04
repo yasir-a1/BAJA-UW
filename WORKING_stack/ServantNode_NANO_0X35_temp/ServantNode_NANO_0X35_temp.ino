@@ -21,7 +21,7 @@ void setup() {
   Serial.println("Just started");
 
   SPI.begin();
-   dht.begin();
+  dht.begin();
 
   mcp2515.reset(); //clear all preset first
   mcp2515.setBitrate(CAN_500KBPS, MCP_8MHZ);  //bitrate set

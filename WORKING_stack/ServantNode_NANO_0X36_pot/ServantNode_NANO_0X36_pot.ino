@@ -19,10 +19,10 @@ void setup() {
   mcp2515.setBitrate(CAN_500KBPS, MCP_8MHZ);  //bitrate set
   mcp2515.setNormalMode();
   
-  canMsg.can_id = 0x36;   //can_id for transmission, lower id, means higher line priority
+  canMsg.can_id = 0x36;   //MUST MATCH ID for MASTER NODE, can_id for transmission, lower id, means higher line priority
   canMsg.can_dlc = 1; //bit size of message being sent
 
-  pinMode(A0, INPUT);  //pins for pot
+  pinMode(A0, INPUT);  //pins for sensor used
   pinMode(2, OUTPUT);
   pinMode(3, OUTPUT);
 
