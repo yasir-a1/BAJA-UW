@@ -8,6 +8,16 @@ struct can_frame canRead;
 
 MCP2515 mcp2515(10);
 
+//SPI pins 
+const int csPin = 10;
+const int sckPin = 0;
+const int siPin = 1;
+const int soPin = 2;
+
+//i2c pin 
+const int sdaPin = 20;
+const int sclPin = 21;
+
 //data variable names
 int temp = 0;
 int tempID = 0x35;
@@ -63,14 +73,19 @@ lcd.print(data3);
 
 void setup() {
   delay(1000);
-  SPI.begin();
+  SPI.begin(sckPin, soPin, siPin, csPin);
+  Wire.begin(sdaPin, sclPin);
   Serial.begin(9600);
   mcp2515.reset(); //clears prev settings
   mcp2515.setBitrate(CAN_500KBPS, MCP_8MHZ);  //set settings
   mcp2515.setNormalMode();
   lcd.init();
   lcd.backlight();
+  pinMode(csPin, OUTPUT);
 
+
+
+ //test statements for LCD screen below can delete once screenPrint function is verified and works
   lcd.setCursor(0,0);
   lcd.print("hi"); 
   lcd.setCursor(0,1);  
