@@ -6,6 +6,20 @@ struct can_frame canRead;
 
 MCP2515 mcp2515(10);
 
+//SPI pins 
+const int csPin = 10;
+const int sckPin = 0;
+const int siPin = 1;
+const int soPin = 2;
+
+
+//data variable names
+int temp = 0;
+int tempID = 0x35;
+int pot = 0;
+int potID  = 0x36;
+
+
 //timer settings
 unsigned long currentTime;
 unsigned long previousTime = 0;
@@ -36,6 +50,7 @@ String time_convert(unsigned long tme){
 
 void setup() {
   delay(100);
+  SPI.begin(sckPin, soPin, siPin, csPin);
   Serial.begin(9600);
   Serial.println("in setup");
   mcp2515.reset(); //clears prev settings

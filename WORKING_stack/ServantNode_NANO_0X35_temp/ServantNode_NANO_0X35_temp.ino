@@ -12,7 +12,7 @@ MCP2515 mcp2515(10); //pin for can modules
 
 unsigned long currentTime;
 unsigned long previousTime;
-unsigned long interval = 300; //time interval for data pushing
+unsigned long interval = 100; //time interval for data pushing
 
 DHT dht(DHTPIN, DHTTYPE); //setup for temp sensor
 
@@ -44,6 +44,6 @@ void loop() {
     mcp2515.sendMessage(&canMsg);
     Serial.print(F("Sent this message"));
     Serial.println(data);
-    previousTime = millis();
+    previousTime = millis(); = 303
   }
 }
