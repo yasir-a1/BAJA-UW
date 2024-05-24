@@ -1,0 +1,10 @@
+//Combined Acceleration reading and canBus communication for servant node
+//Run on Arduino NANO
+#include <wire.h>
+#include <Adafruit_ADXL345_U.h>
+#include <mcp2515.h>
+
+Adafruit_ADXL345_Unified accel = Adafruit_ADXL345_Unified(12345);//Create an accelaration module object
+struct can_frame canMsg;  //creates struct for data type for canmsg
+MCP2515 mcp2515(10); //pin for can modules
+
