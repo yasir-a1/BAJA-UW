@@ -9,22 +9,61 @@ bool AccInitialize(); // returns 1 for fault, 0 for no fault
 
 volatile unsigned long currentTime;
 volatile unsigned long previousTime;
-unsigned long interval = 300;                                     // time interval for data pushing
+unsigned long interval = 300;                                     // time interval for data pushing (ms)
 Adafruit_ADXL345_Unified accel = Adafruit_ADXL345_Unified(12345); // Create an accelaration module object
-struct can_frame canMsg;                                          // creates struct for data type for canmsg
+struct can_frame CanPacket;                                          // creates struct for data type for AccPacket
 MCP2515 mcp2515(10);                                              // pin for can modules
 
 void setup()
 {
     Serial.begin(9600);
-    while (!Serial){delay(50)};
+    while (!Serial)
+    {
+        delay(50)
+    };
+    Serial.println("Initialize CanBus and Accelerometer");
+    if (!CanInitialize())
+    {
+        Serial.println("Failed to initialize CanBus");
+        while (1)
+        {
+            ;
+        };
+    }
+    if (!AccInitialize())
+    {
+        Serial.println("Failed to initialize Accelerometer");
+        while (1)
+        {
+            ;
+        };
+    }
+    Serial.println("Finished Initialization");
 }
 
 void loop()
 {
-    sensors_event_t event;
-    accel.getEvent(&event);
+    currentTime = millis();
 
+    if (currentTime - previousTime >= interval)
+    {
+        int iAccValues[3] = {0};
+        iAccValues[0] = accel.getX();
+        iAccValues[1] = accel.getY();
+        iAccValues[2] = accel.getZ();
+        for(int i =0; i < 3; i++){
+            CanPacket.data[2*i] = iAccValues[i] & 0xFF;
+            CanPacket.data[2*i+1] = (iAccValues[i] >> 8) & 0XFF;
+        }
+        int tInterval = previousTime - millis();
+        CanPacket[6] = tInterval & 0xFF;
+        CanPacket[7] = (tInterval >> 8) & 0xFF;
+        mcp2515.sendMessage(&CanPacket);
+        previousTime = millis();
+        Serial.print(F("Sent this message"));
+        Serial.println(data);
+
+    }
 }
 
 bool CanInitialize()
@@ -35,8 +74,8 @@ bool CanInitialize()
     mcp2515.setBitrate(CAN_500KBPS, MCP_8MHZ); // bitrate set
     mcp2515.setNormalMode();
 
-    canMsg.can_id = 0x37; // MUST MATCH ID for MASTER NODE, can_id for transmission, lower id, means higher line priority
-    canMsg.can_dlc = 1;   // bit size of message being sent
+    CanPacket.can_id = 0x37; // MUST MATCH ID for MASTER NODE, can_id for transmission, lower id, means higher line priority
+    CanPacket.can_dlc = 8;   // Length of message being sent [Bytes]
 
     pinMode(A0, INPUT); // pins for sensor used
     pinMode(2, OUTPUT);
@@ -56,7 +95,6 @@ bool AccInitialize()
         Serial.println("No ADXL345 sensor detected, check wiring!");
         return 1;
     }
-    
     // Set the range in which the sensor reads, can be changed do some more research
     accel.setRange(ADXL345_RANGE_16_G);
     Serial.println("ADXL345 ready!");
