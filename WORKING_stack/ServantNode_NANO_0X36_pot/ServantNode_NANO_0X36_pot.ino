@@ -36,7 +36,6 @@ void loop() {
 
   if(currentTime - previousTime >= interval){
     //
-
     int data = analogRead(A0);
     canMsg.data[0] = data;
     //data = map(data, 0, 1024, 0, 100);
