@@ -13,13 +13,17 @@ unsigned long potReadTime = 0;
 unsigned long tempReadTime = 0;
 unsigned long interval = 500;
 
+int pot;
+int temp;
+
+
 
 void read_data(int id){
-  if(id == potID ){
+  if(id == 0x37 ){
     pot = canRead.data[0];
     potReadTime = millis();
   }
-  if(id == tempID){
+  if(id == 0){
     temp = canRead.data[0];
     tempReadTime = millis();
   }
@@ -52,7 +56,6 @@ void loop() {
   if(mcp2515.readMessage(&canRead) == MCP2515::ERROR_OK){ 
     read_data(canRead.can_id);
   }
-  Serial.println("in loop");
   if (currentTime - previousTime >= interval) {
     Serial.print("temp is ");
     Serial.print(temp);

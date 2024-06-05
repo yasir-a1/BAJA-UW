@@ -103,7 +103,7 @@ void loop() {
 
   int timestamp = millis();
   
-  logData(Accelaration, timestamp);
+  logData(timestamp, Accelaration);
   Serial.println(Accelaration);
   
   //Closes file a key on the desktop is pressed, change to interrupt with button
