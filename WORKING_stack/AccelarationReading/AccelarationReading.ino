@@ -10,8 +10,8 @@ void setup() {
   Serial.begin(9600);
   if (!accel.begin()) {
     Serial.println("No ADXL345 sensor detected, check wiring!");
-    while (1);
-  }
+    while (1); 
+  } 
   //Set the range in which the sensor reads, can be changed do some more research 
   accel.setRange(ADXL345_RANGE_16_G);
   Serial.println("ADXL345 ready!");

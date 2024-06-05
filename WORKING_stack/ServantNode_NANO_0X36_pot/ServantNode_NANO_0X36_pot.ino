@@ -39,6 +39,7 @@ void loop() {
     //
 
     data += 1;
+
     canMsg.data[0] = data;
     //data = map(data, 0, 1024, 0, 100);
     mcp2515.sendMessage(&canMsg);
