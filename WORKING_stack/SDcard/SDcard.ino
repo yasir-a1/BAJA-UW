@@ -53,7 +53,7 @@ void setup() {
   // Set the interrupt pin as input with pull-up resistor
   pinMode(2, INPUT_PULLUP); 
   // Attach the interrupt
-  attachInterrupt(digitalPinToInterrupt(2), fileClose, CHANGE); 
+  attachInterrupt(digitalPinToInterrupt(2), fileClose, CHANGE);  
 
 
   while (!Serial) {
