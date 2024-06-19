@@ -1242,268 +1242,6 @@
 				)
 			)
 		)
-		(symbol "Switch:SW_DPST"
-			(pin_names
-				(offset 0) hide)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "SW"
-				(at 0 6.35 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "SW_DPST"
-				(at 0 -5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Double Pole Single Throw (DPST) Switch"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "switch dual double-pole single-throw OFF-ON"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "SW_DPST_0_0"
-				(circle
-					(center -2.032 -2.54)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center -2.032 2.54)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.524 -2.286) (xy 1.27 -1.016)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.524 2.794) (xy 1.27 4.064)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -1.27) (xy 0 -0.635)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0) (xy 0 0.635)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 1.27) (xy 0 1.905)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 2.54) (xy 0 3.175)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 2.032 -2.54)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 2.032 2.54)
-					(radius 0.508)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "SW_DPST_1_1"
-				(rectangle
-					(start -3.175 4.445)
-					(end 3.175 -3.81)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(pin passive line
-					(at -5.08 -2.54 0)
-					(length 2.54)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 -2.54 180)
-					(length 2.54)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 2.54 0)
-					(length 2.54)
-					(name "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 2.54 180)
-					(length 2.54)
-					(name "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
 		(symbol "Switch:SW_Nidec_CAS-120A1"
 			(pin_names
 				(offset 1) hide)
@@ -1806,6 +1544,26 @@
 		)
 		(uuid "0111bb4b-28d2-4c47-97ca-468027151b80")
 	)
+	(wire
+		(pts
+			(xy 24.13 45.72) (xy 24.13 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "04408922-b8e3-411a-ace9-f5d67fdca252")
+	)
+	(wire
+		(pts
+			(xy 24.13 41.91) (xy 46.99 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "07100d17-7f7d-4d7d-bfd8-9ca64c27f8b6")
+	)
 	(polyline
 		(pts
 			(xy 196.85 97.79) (xy 179.07 97.79)
@@ -1829,7 +1587,7 @@
 	)
 	(wire
 		(pts
-			(xy 81.28 49.53) (xy 81.28 46.99)
+			(xy 81.28 58.42) (xy 81.28 46.99)
 		)
 		(stroke
 			(width 0)
@@ -1911,16 +1669,6 @@
 	)
 	(wire
 		(pts
-			(xy 35.56 44.45) (xy 46.99 44.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3a1ba7db-26a6-46d7-8eab-10a9d8e2d401")
-	)
-	(wire
-		(pts
 			(xy 81.28 46.99) (xy 86.36 46.99)
 		)
 		(stroke
@@ -1931,13 +1679,23 @@
 	)
 	(wire
 		(pts
-			(xy 57.15 49.53) (xy 81.28 49.53)
+			(xy 57.15 58.42) (xy 81.28 58.42)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "46139d10-75ef-41fe-9f3d-845aa77752fe")
+	)
+	(wire
+		(pts
+			(xy 38.1 62.23) (xy 38.1 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4c968b74-5479-4315-84b9-378ca548d7a6")
 	)
 	(polyline
 		(pts
@@ -2065,6 +1823,16 @@
 	)
 	(wire
 		(pts
+			(xy 38.1 46.99) (xy 46.99 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8436b61c-0350-4625-971b-2f643dbe7192")
+	)
+	(wire
+		(pts
 			(xy 199.39 88.9) (xy 222.25 88.9)
 		)
 		(stroke
@@ -2075,7 +1843,7 @@
 	)
 	(wire
 		(pts
-			(xy 40.64 49.53) (xy 40.64 52.07)
+			(xy 25.4 55.88) (xy 25.4 58.42)
 		)
 		(stroke
 			(width 0)
@@ -2145,6 +1913,16 @@
 	)
 	(wire
 		(pts
+			(xy 38.1 49.53) (xy 38.1 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b90cb8d4-00b6-4216-8b89-bfd7d99ca9a8")
+	)
+	(wire
+		(pts
 			(xy 238.76 88.9) (xy 259.08 88.9)
 		)
 		(stroke
@@ -2176,6 +1954,16 @@
 	)
 	(wire
 		(pts
+			(xy 38.1 60.96) (xy 46.99 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c40c6ece-0927-41f8-bf9e-0f4a840ed297")
+	)
+	(wire
+		(pts
 			(xy 113.03 144.78) (xy 91.44 144.78)
 		)
 		(stroke
@@ -2183,16 +1971,6 @@
 			(type default)
 		)
 		(uuid "d25971e9-23d3-4e1b-b2a1-1f55b593273d")
-	)
-	(wire
-		(pts
-			(xy 40.64 49.53) (xy 46.99 49.53)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d9d93c20-3737-48ff-bd54-5a8da499cf72")
 	)
 	(polyline
 		(pts
@@ -2227,6 +2005,16 @@
 	)
 	(wire
 		(pts
+			(xy 25.4 55.88) (xy 46.99 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f25d1a11-f6b5-4325-aa51-5bb981733120")
+	)
+	(wire
+		(pts
 			(xy 132.08 144.78) (xy 137.16 144.78)
 		)
 		(stroke
@@ -2258,6 +2046,18 @@
 			(type none)
 		)
 		(uuid 001cf8e9-07af-47ee-b940-e4f05bb48d94)
+	)
+	(rectangle
+		(start 19.812 45.466)
+		(end 28.702 53.086)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 066b3157-bde7-4918-a1ca-63cafdc23ecd)
 	)
 	(rectangle
 		(start 41.91 124.46)
@@ -2359,6 +2159,18 @@
 			(type none)
 		)
 		(uuid 7d279dd8-4d38-4f32-aab2-b2ed617c2e12)
+	)
+	(rectangle
+		(start 20.32 58.42)
+		(end 30.48 64.77)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 931a03e8-2d13-4849-9803-e15a859196b8)
 	)
 	(rectangle
 		(start 113.03 45.72)
@@ -2464,6 +2276,16 @@
 		)
 		(uuid "4d6e3eb6-47cc-48a3-a09f-613a1d6c6da1")
 	)
+	(text "REST OF \nCAR"
+		(exclude_from_sim no)
+		(at 25.908 62.23 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "6be4b7aa-4065-46ae-9983-ff42cdf16381")
+	)
 	(text "KIll Switch and Diff Schematics\n"
 		(exclude_from_sim no)
 		(at 233.426 174.752 0)
@@ -2496,7 +2318,7 @@
 	)
 	(text "2 KILL SWITCHES"
 		(exclude_from_sim no)
-		(at 53.086 40.64 0)
+		(at 32.766 33.782 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2523,6 +2345,16 @@
 			)
 		)
 		(uuid "9ec70e82-6a8f-4eb9-8bbb-9dde4a39ab1b")
+	)
+	(text "REST\nOF\nCAR\n"
+		(exclude_from_sim no)
+		(at 24.13 49.53 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "b69b1067-e52d-4036-96b4-6c1700f97ba9")
 	)
 	(text "Differential Switch Schematic"
 		(exclude_from_sim no)
@@ -2623,81 +2455,6 @@
 			(project "baja_electrical_schematics"
 				(path "/afa35e4c-361a-4a5f-8502-0679a9e7e1ac"
 					(reference "SW4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Switch:SW_DPST")
-		(at 52.07 46.99 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "1c6e2ede-9736-4ed6-a778-afe6255e85b1")
-		(property "Reference" "SW3"
-			(at 52.07 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "SW_DPST"
-			(at 52.07 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" ""
-			(at 52.07 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 52.07 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Double Pole Single Throw (DPST) Switch"
-			(at 52.07 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "3"
-			(uuid "490766c6-2bfe-442b-9ce2-0179391c001b")
-		)
-		(pin "4"
-			(uuid "397b3a71-f205-4095-8723-890b5e832327")
-		)
-		(pin "2"
-			(uuid "680347b0-2fab-4b3e-bcb6-ed99a8967360")
-		)
-		(pin "1"
-			(uuid "44971b52-c56f-4d12-8830-e5e9739fbe55")
-		)
-		(instances
-			(project "baja_electrical_schematics"
-				(path "/afa35e4c-361a-4a5f-8502-0679a9e7e1ac"
-					(reference "SW3")
 					(unit 1)
 				)
 			)
@@ -2839,6 +2596,79 @@
 			(project "baja_electrical_schematics"
 				(path "/afa35e4c-361a-4a5f-8502-0679a9e7e1ac"
 					(reference "BT2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Switch:SW_Nidec_CAS-120A1")
+		(at 52.07 58.42 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3bd84017-8d8f-4943-aad2-42dfa8be1b45")
+		(property "Reference" "SW5"
+			(at 52.07 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "SW_Nidec_CAS-120A1"
+			(at 52.07 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Button_Switch_SMD:Nidec_Copal_CAS-120A"
+			(at 52.07 48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.nidec-components.com/e/catalog/switch/cas.pdf"
+			(at 52.07 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Switch, single pole double throw"
+			(at 52.07 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "84c9fd10-cf55-4fd0-9ba7-95bce243cea3")
+		)
+		(pin "3"
+			(uuid "32e19423-6dba-46ca-9004-3692fba29ead")
+		)
+		(pin "2"
+			(uuid "90c0729f-46d6-41c0-8ef5-c540ab9f8346")
+		)
+		(instances
+			(project "baja_electrical_schematics"
+				(path "/afa35e4c-361a-4a5f-8502-0679a9e7e1ac"
+					(reference "SW5")
 					(unit 1)
 				)
 			)
@@ -3303,6 +3133,78 @@
 		)
 	)
 	(symbol
+		(lib_id "Switch:SW_Nidec_CAS-120A1")
+		(at 52.07 44.45 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "8926efda-24c5-40c2-87e1-7cace6d13292")
+		(property "Reference" "SW3"
+			(at 52.07 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_Nidec_CAS-120A1"
+			(at 52.07 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Button_Switch_SMD:Nidec_Copal_CAS-120A"
+			(at 52.07 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.nidec-components.com/e/catalog/switch/cas.pdf"
+			(at 52.07 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Switch, single pole double throw"
+			(at 52.07 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a1285299-b716-4349-b04d-d22e8bca30d0")
+		)
+		(pin "3"
+			(uuid "e2c63e29-6fcc-4fff-a900-6765caac0002")
+		)
+		(pin "2"
+			(uuid "e7ba925d-2d35-45c6-9536-747883f3dd6e")
+		)
+		(instances
+			(project "baja_electrical_schematics"
+				(path "/afa35e4c-361a-4a5f-8502-0679a9e7e1ac"
+					(reference "SW3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:Battery")
 		(at 58.42 152.4 270)
 		(unit 1)
@@ -3504,15 +3406,16 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 35.56 44.45 0)
+		(at 38.1 62.23 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "e15256da-e935-43f7-b868-c73d0fbecb1e")
+		(fields_autoplaced yes)
+		(uuid "cc8cfb5d-e655-48e4-b7dc-dfa07c9f1d7f")
 		(property "Reference" "#PWR02"
-			(at 35.56 50.8 0)
+			(at 38.1 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3521,7 +3424,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 35.306 49.276 0)
+			(at 38.1 67.31 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3529,7 +3432,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 35.56 44.45 0)
+			(at 38.1 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3538,7 +3441,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 35.56 44.45 0)
+			(at 38.1 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3547,7 +3450,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 35.56 44.45 0)
+			(at 38.1 62.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3556,12 +3459,78 @@
 			)
 		)
 		(pin "1"
-			(uuid "1adfb1ec-d834-49a5-9e12-48fe59ce721c")
+			(uuid "eceddf74-65ab-4923-807a-80fcf8005ec8")
 		)
 		(instances
 			(project "baja_electrical_schematics"
 				(path "/afa35e4c-361a-4a5f-8502-0679a9e7e1ac"
 					(reference "#PWR02")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 38.1 49.53 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d896eaba-6f26-40c5-ad8b-7cc2c6a43598")
+		(property "Reference" "#PWR01"
+			(at 38.1 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 38.1 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 38.1 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 38.1 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 38.1 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9e67c88f-b6e3-4b60-8ef9-05b4e1048fae")
+		)
+		(instances
+			(project "baja_electrical_schematics"
+				(path "/afa35e4c-361a-4a5f-8502-0679a9e7e1ac"
+					(reference "#PWR01")
 					(unit 1)
 				)
 			)
@@ -3635,72 +3604,6 @@
 			(project "baja_electrical_schematics"
 				(path "/afa35e4c-361a-4a5f-8502-0679a9e7e1ac"
 					(reference "SW2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 40.64 52.07 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "f6090cad-2d1a-42a6-8f38-32d0d1ca634b")
-		(property "Reference" "#PWR01"
-			(at 40.64 58.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 40.64 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 40.64 52.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 40.64 52.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 40.64 52.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "15f3c15d-75f0-4c8f-9e96-cb7fa87e88f1")
-		)
-		(instances
-			(project "baja_electrical_schematics"
-				(path "/afa35e4c-361a-4a5f-8502-0679a9e7e1ac"
-					(reference "#PWR01")
 					(unit 1)
 				)
 			)
