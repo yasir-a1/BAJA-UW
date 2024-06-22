@@ -26,4 +26,8 @@ what you will need for the code to work
    
       https://github.com/adafruit/Adafruit_ADXL345
 
-6.
+6. Add the Adafruit BusIO library from the arduino library manager
+   
+8. Add Adafruit Sensor library, base functionality for all sensor inputs
+
+      https://github.com/adafruit/Adafruit_Sensor
