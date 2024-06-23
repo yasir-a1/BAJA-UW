@@ -17,10 +17,10 @@ bool AccInitialize();  // returns 1 for fault, 0 for no fault
 //
 struct can_frame canPacket;  // creates struct for data type for AccPacket
 volatile unsigned long currentTime;
-volatile unsigned long previousTime;
+volatile unsigned long previousTime = millis();
 Adafruit_ADXL345_Unified accel = Adafruit_ADXL345_Unified(12345);  // Create an accelaration module object
 MCP2515 mcp2515(Can_CS_Pin);                                       // pin for can modules
-int iAccValues[3] = { 0xf0f0, 0x0f0f, 0xAAAA};                                   // Stores values for
+uint16_t iAccValues[3] = { 0xf0f0, 0x0f0f, 0xAAAA};                                   // Stores values for
 
 void setup() {
 
@@ -40,16 +40,17 @@ void setup() {
 void loop() {
 
   if (millis() - previousTime >= interval) {
-    /*iAccValues[0] = accel.getX();
+    iAccValues[0] = accel.getX();
     iAccValues[1] = accel.getY();
-    iAccValues[2] = accel.getZ();*/
-    unsigned long tInterval = previousTime - millis();
+    iAccValues[2] = accel.getZ();
+    unsigned long tInterval = millis() - previousTime;
     previousTime = millis();
     for (int i = 0; i < 3; i++) {
       Serial.println(iAccValues[i]);
       canPacket.data[2 * i] = iAccValues[i] & 0xFF;
       canPacket.data[2 * i + 1] = (iAccValues[i] >> 8) & 0XFF;
     }
+    Serial.println(tInterval);
     canPacket.data[6] = tInterval & 0xFF;
     canPacket.data[7] = (tInterval >> 8) & 0xFF;
     mcp2515.sendMessage(&canPacket);

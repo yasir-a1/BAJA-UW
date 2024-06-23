@@ -24,7 +24,8 @@ void loop() {
   Serial.print("X: "); Serial.print(event.acceleration.x); Serial.print(" ");
   Serial.print("Y: "); Serial.print(event.acceleration.y); Serial.print(" ");
   Serial.print("Z: "); Serial.print(event.acceleration.z); Serial.print(" ");
-  Serial.print("T: "); Serial.println(event.timestamp);
-  Serial.println(sizeof(event.acceleration.z));
+  Serial.print("X: "); Serial.print(accel.getX()); Serial.print(" ");
+  Serial.print("Y: "); Serial.print(accel.getY()); Serial.print(" ");
+  Serial.print("Z: "); Serial.print(accel.getZ()); Serial.println(" ");
   delay(100);
 }
