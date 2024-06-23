@@ -23,7 +23,8 @@ void loop() {
 
   Serial.print("X: "); Serial.print(event.acceleration.x); Serial.print(" ");
   Serial.print("Y: "); Serial.print(event.acceleration.y); Serial.print(" ");
-  Serial.print("Z: "); Serial.println(event.acceleration.z);
-
-  delay(500);
+  Serial.print("Z: "); Serial.print(event.acceleration.z); Serial.print(" ");
+  Serial.print("T: "); Serial.println(event.timestamp);
+  Serial.println(sizeof(event.acceleration.z));
+  delay(100);
 }

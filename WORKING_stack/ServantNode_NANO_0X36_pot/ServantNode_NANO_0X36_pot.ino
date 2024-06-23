@@ -43,7 +43,7 @@ void loop() {
     canMsg.data[0] = data;
     //data = map(data, 0, 1024, 0, 100);
     mcp2515.sendMessage(&canMsg);
-    Serial.print(F("Sent this message"));
+    Serial.print(F("Sent this message "));
     Serial.println(data);
     previousTime = millis();
   }

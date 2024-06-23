@@ -4,14 +4,14 @@
 
 struct can_frame canRead;
 
-MCP2515 mcp2515(10);
+MCP2515 mcp2515(9);
 
 //timer settings
 unsigned long currentTime;
 unsigned long previousTime = 0;
 unsigned long potReadTime = 0;
 unsigned long tempReadTime = 0;
-unsigned long interval = 500;
+unsigned long interval = 300;
 
 int pot;
 int temp;
@@ -57,15 +57,14 @@ void loop() {
     read_data(canRead.can_id);
   }
   if (currentTime - previousTime >= interval) {
-    Serial.print("temp is ");
+    Serial.print("temp value is ");
     Serial.print(temp);
-    Serial.print("recorded at ");
-    Serial.print(time_convert(tempReadTime));
-    Serial.print(" pot value is ");
+    Serial.print(" recorded at ");
+    Serial.println(time_convert(tempReadTime));
+    Serial.print("pot value is  ");
     Serial.print(pot);
     Serial.print(" recorded at ");
-    Serial.print(time_convert(potReadTime));
-    Serial.println();
+    Serial.println(time_convert(potReadTime));
     previousTime = millis();
 
   }
