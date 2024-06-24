@@ -5,11 +5,25 @@
 #include <Wire.h>
 
 struct can_frame canRead;
-struct acc_frame{
-  float accVals[3];
+
+struct acc_frame {
+  struct RawData {
+    double x, y, z;
+  } rawVals, calibVals;
   int time;
 } stitchedVals;
+
 MCP2515 mcp2515(9);
+
+double bias[3], scale[3];
+double orientationData[6][3] = {
+  {10.23, 0.07, 1.66},
+  {-10.44, -0.41, 1.77},
+  {-0.05, 10.18, 1.71},
+  {0.16, -10.54, 1.15},
+  {-0.09, -0.03, 11.72},
+  {0.08, -0.05, -8.30}
+}; //x,y,z then +x, -x, +y, -y, +z, -z
 
 //timer settings
 unsigned long currentTime;
@@ -26,7 +40,9 @@ int temp;
 
 void read_data(int id);
 String time_convert(unsigned long time);
-void convert_acc();
+void interpretCanInput();
+void applyCalibration();
+void computeCalibration();
 
 void setup() {
   delay(100);
@@ -35,6 +51,7 @@ void setup() {
   mcp2515.reset();                            //clears prev settings
   mcp2515.setBitrate(CAN_500KBPS, MCP_8MHZ);  //set settings
   mcp2515.setNormalMode();
+  computeCalibration();
   //pinMode(csPin, OUTPUT);
 }
 
@@ -43,10 +60,10 @@ void loop() {
 
 
   if (currentTime - previousTime >= interval) {
-      if (mcp2515.readMessage(&canRead) == MCP2515::ERROR_OK) {
-    read_data(canRead.can_id);
-  }
-  /*
+    if (mcp2515.readMessage(&canRead) == MCP2515::ERROR_OK) {
+      read_data(canRead.can_id);
+    }
+    /*
     Serial.println(read_ACC[0]);
     Serial.println(read_ACC[1]);
     Serial.println(read_ACC[2]);
@@ -55,11 +72,15 @@ void loop() {
     Serial.println(read_ACC[5]);
     Serial.println(read_ACC[6]);
     Serial.println(read_ACC[7]);
-*/
+    */
 
-    Serial.println(stitchedVals.accVals[0]);
-    Serial.println(stitchedVals.accVals[1]);
-    Serial.println(stitchedVals.accVals[2]);
+    Serial.println(stitchedVals.rawVals.x);
+    Serial.println(stitchedVals.rawVals.y);
+    Serial.println(stitchedVals.rawVals.z);
+    Serial.println(stitchedVals.time);
+    Serial.println(stitchedVals.calibVals.x);
+    Serial.println(stitchedVals.calibVals.y);
+    Serial.println(stitchedVals.calibVals.z);
     Serial.println(stitchedVals.time);
     /*Serial.print("temp value is ");
     Serial.println(stitchedVals.accVals[0]);
@@ -81,7 +102,8 @@ void read_data(int id) {
     for (unsigned int i = 0; i < Can_Length; i++) {
       read_ACC[i] = canRead.data[i];
     }
-    convert_acc();
+    interpretCanInput();
+    applyCalibration();
   }
   if (id == 0) {
     temp = canRead.data[0];
@@ -97,13 +119,29 @@ String time_convert(unsigned long time) {
   return ((String(hr) + ":" + String(mins) + ":" + String(sec) + ":" + String(ms)));  //Converts to HH:MM:SS string. This can be returned to the calling function.
 }
 
-void convert_acc(){
+void interpretCanInput() {
   int16_t xyzt[4];
-    for (unsigned int i = 0; i < 4; i++) {
-        xyzt[i] = read_ACC[2 * i] | (read_ACC[2 * i + 1] << 8);
-    }
-    for (int i = 0; i < 3; i++){
-      stitchedVals.accVals[i] = xyzt[i] * ADXL345_MG2G_MULTIPLIER * SENSORS_GRAVITY_STANDARD;
-    }
-    stitchedVals.time = xyzt[3];
+  for (unsigned int i = 0; i < 4; i++) {
+    xyzt[i] = read_ACC[2 * i] | (read_ACC[2 * i + 1] << 8);
+  }
+  stitchedVals.rawVals.x = xyzt[0] * ADXL345_MG2G_MULTIPLIER * SENSORS_GRAVITY_STANDARD;
+  stitchedVals.rawVals.y = xyzt[1] * ADXL345_MG2G_MULTIPLIER * SENSORS_GRAVITY_STANDARD;
+  stitchedVals.rawVals.z = xyzt[2] * ADXL345_MG2G_MULTIPLIER * SENSORS_GRAVITY_STANDARD;
+  stitchedVals.time = xyzt[3];
+}
+
+void applyCalibration() {
+  stitchedVals.calibVals.x = (stitchedVals.rawVals.x - bias[0])/scale[0];
+  stitchedVals.calibVals.y = (stitchedVals.rawVals.y - bias[1])/scale[1];
+  stitchedVals.calibVals.y = (stitchedVals.rawVals.z - bias[2])/scale[2];
+}
+
+void computeCalibration(){
+  bias[0] = (orientationData[0][0] + orientationData[1][0])/2;
+  bias[1] = (orientationData[2][1] + orientationData[3][1])/2;
+  bias[2] = (orientationData[4][2] + orientationData[5][2])/2;
+
+  scale[0] = (orientationData[0][0] - orientationData[1][0])/2;
+  scale[1] = (orientationData[2][1] - orientationData[3][1])/2;
+  scale[2] = (orientationData[4][2] - orientationData[5][2])/2;
 }
