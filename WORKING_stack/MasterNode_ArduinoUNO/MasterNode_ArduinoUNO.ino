@@ -103,7 +103,7 @@ void read_data(int id) {
       read_ACC[i] = canRead.data[i];
     }
     interpretCanInput();
-    applyCalibration();
+    //applyCalibration();
   }
   if (id == 0) {
     temp = canRead.data[0];
